@@ -1,0 +1,22 @@
+GET http://localhost:3001/api/users
+
+###
+
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "first_name": "jd",
+  "last_name": "tadlock",
+  "email": "jd@test.com",
+  "password": "password"
+}
+
+###
+
+PUT http://localhost:3001/api/users/bob@test.com
+Content-Type: application/json
+
+{
+  "password": "password12345"
+}
