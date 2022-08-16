@@ -6,17 +6,27 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-  "first_name": "jd",
-  "last_name": "tadlock",
   "email": "jd@test.com",
   "password": "password"
 }
 
-###
+### Create a post
 
-PUT http://localhost:3001/api/users/bob@test.com
+POST http://localhost:3001/api/posts/62faeb3fd86bdb3619057730
 Content-Type: application/json
 
 {
-  "password": "password12345"
+  "title": "our second post",
+  "body": "the body of our second post"
 }
+
+### Get all users's posts by user ID
+GET http://localhost:3001/api/posts/62faeb3fd86bdb3619057730
+
+### Get post by ID
+
+GET http://localhost:3001/api/posts?post_id=62faee423ee6d552c8b52c18&user_id=62faeb3fd86bdb3619057730
+
+### Delete by post ID
+
+DELETE http://localhost:3001/api/posts?post_id=62faee423ee6d552c8b52c18&user_id=62faeb3fd86bdb3619057730

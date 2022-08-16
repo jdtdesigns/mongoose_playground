@@ -1,8 +1,17 @@
 const { Schema, model } = require('mongoose');
 
+// const postSchema = new Schema({
+//   title: {
+//     type: String,
+//     required: true
+//   },
+//   body: {
+//     type: String,
+//     required: true
+//   }
+// });
+
 const userSchema = new Schema({
-  first_name: String,
-  last_name: String,
   email: {
     type: String,
     required: true,
@@ -12,12 +21,18 @@ const userSchema = new Schema({
     type: String,
     required: true,
     min: 6
-  }
+  },
+  posts: [{
+    title: {
+      type: String,
+      required: true
+    },
+    body: {
+      type: String,
+      required: true
+    }
+  }]
 });
-
-userSchema.methods.getFullName = function () {
-  return this.first_name + ' ' + this.last_name;
-}
 
 const User = model('User', userSchema);
 
