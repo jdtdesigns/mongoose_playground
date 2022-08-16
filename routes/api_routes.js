@@ -26,14 +26,7 @@ api_router.post('/students', async (req, res) => {
 })
 
 api_router.delete('/students', async (req, res) => {
-  const { group_id, student_id } = req.body;
 
-  const group = await Group.findOne({ _id: group_id });
-
-  group.students.id(student_id).remove();
-  group.save();
-
-  res.send(group);
 });
 
 module.exports = api_router;
