@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Wrap Mongoose around local connection to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/mongoose_playground', {
+mongoose.connect('mongodb+srv://jd:password12345@cluster0.fbplmte.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

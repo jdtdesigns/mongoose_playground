@@ -1,13 +1,21 @@
 ### Get all groups
 GET http://localhost:3001/api/groups
 
+### Create a group
+POST http://localhost:3001/api/groups
+Content-Type: application/json
+
+{
+  "group_name": "team awesome"
+}
+
 ### Add a student to a group
 POST http://localhost:3001/api/students
 Content-Type: application/json
 
 {
-  "group_id": "62fab3ae7195131226d24df2",
-  "name": "Brad"
+  "group_id": "62fbe4f36af676e06648408d",
+  "name": "Gunner"
 }
 
 ### Get a student by id
