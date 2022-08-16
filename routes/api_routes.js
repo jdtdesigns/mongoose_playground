@@ -1,34 +1,39 @@
 const api_router = require('express').Router();
 
-const User = require('../models/User');
+const Group = require('../models/Group');
 
-User.findOne({})
-  .then(user => {
-    // console.log('fired');
-    console.log(user.getFullName());
-  });
+api_router.get('/groups', async (req, res) => {
+  const groups = await Group.find();
 
-api_router.get('/users', (req, res) => {
-  User.find()
-    .then(users => { // []
-      res.json(users);
-    });
+  res.send(groups);
 });
 
-api_router.post('/users', (req, res) => {
-  User.create(req.body).then(user => {
-    res.json(user);
-  });
+api_router.post('/groups', async (req, res) => {
+  const group = await Group.create(req.body);
+
+  res.send(group);
 });
 
-api_router.put('/users/:email', (req, res) => {
-  User.findOneAndUpdate({
-    email: req.params.email
-  }, {
-    password: req.body.password
-  }, { new: true }).then(user => {
-    res.json(user);
-  });
+api_router.post('/students', async (req, res) => {
+  const { group_id, name } = req.body;
+
+  const group = await Group.findOne({ _id: group_id });
+
+  group.students.push({ name });
+  group.save();
+
+  res.send(group);
+})
+
+api_router.delete('/students', async (req, res) => {
+  const { group_id, student_id } = req.body;
+
+  const group = await Group.findOne({ _id: group_id });
+
+  group.students.id(student_id).remove();
+  group.save();
+
+  res.send(group);
 });
 
 module.exports = api_router;

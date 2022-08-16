@@ -1,22 +1,30 @@
-GET http://localhost:3001/api/users
+GET http://localhost:3001/api/groups
 
 ###
 
-POST http://localhost:3001/api/users
+POST http://localhost:3001/api/groups
 Content-Type: application/json
 
 {
-  "first_name": "jd",
-  "last_name": "tadlock",
-  "email": "jd@test.com",
-  "password": "password"
+  "group_name": "team awesome"
 }
 
 ###
 
-PUT http://localhost:3001/api/users/bob@test.com
+POST http://localhost:3001/api/students/
 Content-Type: application/json
 
 {
-  "password": "password12345"
+  "group_id": "62fab3ae7195131226d24df2",
+  "name": "gunner"
+}
+
+###
+
+DELETE http://localhost:3001/api/students/
+Content-Type: application/json
+
+{
+  "group_id": "62fab3ae7195131226d24df2",
+  "student_id": "62fab3e07195131226d24df5"
 }
