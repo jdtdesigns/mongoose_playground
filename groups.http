@@ -1,0 +1,17 @@
+### Get all groups
+GET http://localhost:3001/api/groups
+
+### Add a student to a group
+POST http://localhost:3001/api/students
+Content-Type: application/json
+
+{
+  "group_id": "62fab3ae7195131226d24df2",
+  "name": "Brad"
+}
+
+### Get a student by id
+GET http://localhost:3001/api/student?student_id=62fbb9bc378a66ecb65103fe&group_id=62fab3ae7195131226d24df2
+
+### Delete a student by id
+DELETE http://localhost:3001/api/student?student_id=62fbb62c46994413d50f578f&group_id=62fab3ae7195131226d24df2
