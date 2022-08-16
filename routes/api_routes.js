@@ -1,10 +1,11 @@
 const api_router = require('express').Router();
 
 const Group = require('../models/Group');
+const Student = require('../models/Student');
 
 // Get all groups
 api_router.get('/groups', async (req, res) => {
-  const groups = await Group.find();
+  const groups = await Group.find().populate('students');
 
   res.send(groups);
 });
@@ -21,8 +22,11 @@ api_router.post('/students', async (req, res) => {
   const { group_id, name } = req.body;
 
   const group = await Group.findOne({ _id: group_id });
+  const student = await Student.create({
+    name: req.body.name
+  });
 
-  group.students.push({ name: name });
+  group.students.push(student._id);
   group.save();
 
   res.send(group);

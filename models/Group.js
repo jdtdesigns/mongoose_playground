@@ -1,11 +1,4 @@
-const { Schema, model } = require('mongoose');
-
-// const studentSchema = new Schema({
-//   name: {
-//     type: String,
-//     required: true
-//   }
-// })
+const { Schema, model, SchemaTypes } = require('mongoose');
 
 const groupSchema = new Schema({
   group_name: {
@@ -13,10 +6,8 @@ const groupSchema = new Schema({
     required: true
   },
   students: [{
-    name: {
-      type: String,
-      required: true
-    }
+    type: SchemaTypes.ObjectId,
+    ref: 'Student'
   }]
 }, {
   toJSON: {
@@ -28,14 +19,8 @@ groupSchema.virtual('student_count').get(function () {
   return this.students.length;
 });
 
-// groupSchema.methods.validatePassword = function () {
-//   console.log(`Hi, ${this.group_name}`)
-// }
-
-
 const Group = model('Group', groupSchema);
 
-
-// User.deleteMany({}).then(() => console.log('users deleted'));
+// Group.deleteMany({}).then(() => console.log('groups deleted.'))
 
 module.exports = Group;

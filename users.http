@@ -1,21 +1,20 @@
 GET http://localhost:3001/api/groups
 
-###
-
+### Create a group
 POST http://localhost:3001/api/groups
 Content-Type: application/json
 
 {
-  "group_name": "team awesome"
+  "group_name": "team garf"
 }
 
-###
+### Add student to a group
 
 POST http://localhost:3001/api/students/
 Content-Type: application/json
 
 {
-  "group_id": "62fab3ae7195131226d24df2",
+  "group_id": "62fbc9e8c56b9d7f6e9ec657",
   "name": "gunner"
 }
 
