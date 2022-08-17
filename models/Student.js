@@ -12,8 +12,12 @@ const studentSchema = new Schema({
 });
 
 studentSchema.virtual('fullName')
-  .set(function (v) {
-    this.set({ first: v });
+  .get(function () {
+    return `${this.first} ${this.last}`;
+  })
+  .set(function (val) {
+    const split = val.trim().split(' ');
+    this.set({ first: split[0], last: split[1] });
   });
 
 const Student = model('Student', studentSchema);

@@ -49,8 +49,8 @@ api_router.get('/student', async (req, res) => {
 
   // console.log(group);
   const student = await Student.findOne({ _id: student_id });
-  // student.fullName = 'Something';
-  // student.save();
+  student.fullName = 'Sarah Tadlock';
+  student.save();
   res.send(student);
 });
 

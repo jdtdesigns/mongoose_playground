@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Wrap Mongoose around local connection to MongoDB
-mongoose.connect('mongodb+srv://jd:password12345@cluster0.fbplmte.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://jd:password12345@cluster0.fcshcmp.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
