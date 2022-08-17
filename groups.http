@@ -17,8 +17,9 @@ POST http://localhost:3001/api/students
 Content-Type: application/json
 
 {
-  "group_id": "62fbe4f36af676e06648408d",
-  "name": "Gunner"
+  "group_id": "62fd0cebc99ea7d38e632e4d",
+  "first": "James",
+  "last": "Buchmann"
 }
 
 ### Get a student by id

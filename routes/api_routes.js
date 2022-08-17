@@ -25,11 +25,11 @@ api_router.get('/students', async (req, res) => {
 
 // Create a student
 api_router.post('/students', async (req, res) => {
-  const { group_id, name } = req.body;
+  const { group_id, first, last } = req.body;
 
   const group = await Group.findOne({ _id: group_id });
   const student = await Student.create({
-    name
+    first, last
   });
 
   group.students.push(student._id);
