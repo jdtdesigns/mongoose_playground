@@ -18,7 +18,7 @@ Content-Type: application/json
   "name": "gunner"
 }
 
-###
+### Create a post
 
 DELETE http://localhost:3001/api/students/
 Content-Type: application/json
@@ -27,3 +27,4 @@ Content-Type: application/json
   "group_id": "62fab3ae7195131226d24df2",
   "student_id": "62fab3e07195131226d24df5"
 }
+
