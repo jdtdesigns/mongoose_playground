@@ -4,7 +4,7 @@
     "mongoose": "^6.5.2"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "name": "mongoose_playground",
   "version": "1.0.0",
