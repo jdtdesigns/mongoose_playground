@@ -17,6 +17,13 @@ api_router.post('/groups', async (req, res) => {
   res.send(group);
 });
 
+// Get all students
+api_router.get('/students', async (req, res) => {
+  const students = await Student.find();
+
+  res.send(students);
+});
+
 // Create a student
 api_router.post('/students', async (req, res) => {
   const { group_id, name } = req.body;
@@ -35,12 +42,16 @@ api_router.post('/students', async (req, res) => {
 // Get a student by student ID
 api_router.get('/student', async (req, res) => {
   const student_id = req.query.student_id;
-  const group_id = req.query.group_id;
-  const group = await Group.findOne({
-    _id: group_id
-  });
+  // const group_id = req.query.group_id;
+  // const group = await Group.findOne({
+  //   _id: group_id
+  // }).populate('students');
 
-  res.send(group.students.id(student_id));
+  // console.log(group);
+  const student = await Student.findOne({ _id: student_id });
+  // student.fullName = 'Something';
+  // student.save();
+  res.send(student);
 });
 
 // Delete a student from a group
